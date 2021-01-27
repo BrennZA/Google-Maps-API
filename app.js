@@ -11,4 +11,10 @@ function initMap() {
         center: capitalInfo[0].position,
         zoom: 5,
     });
+
+    const capitalMarker = new google.maps.Marker({
+        position: capitalInfo[0].position,
+        title: capitalInfo[0].title,
+        map: map,
+    });
 }
