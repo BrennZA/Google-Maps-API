@@ -5,6 +5,17 @@ const capitalInfo = [
     }
 ];
 
+const landmarksInfo = [
+    PyramidsOfGiza = {
+        position: { lat: 29.9792, lng: 31.1342 },
+        title: "Pyramids of Giza",
+    },
+    KarnakTemple = {
+        position: { lat: 25.7188, lng: 32.6573 },
+        title: "Karnak Temple",
+    },
+]
+
 function initMap() {
 
     const map = new google.maps.Map(document.getElementById("map"), {
@@ -16,5 +27,11 @@ function initMap() {
         position: capitalInfo[0].position,
         title: capitalInfo[0].title,
         map: map,
+    });
+
+    const landmarkMarkers = landmarksInfo.map((location, i) => {
+        return new google.maps.Marker({
+            position: location.position,
+        });
     });
 }
