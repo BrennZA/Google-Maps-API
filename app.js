@@ -29,9 +29,17 @@ function initMap() {
         map: map,
     });
 
+    // LABELS FOR LANDMARK MARKERS
+    const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
     const landmarkMarkers = landmarksInfo.map((location, i) => {
         return new google.maps.Marker({
             position: location.position,
+            label: labels[i % labels.length],
         });
+    });
+
+    new MarkerClusterer(map, landmarkMarkers, {
+        imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
     });
 }
