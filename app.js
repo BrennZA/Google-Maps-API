@@ -14,7 +14,35 @@ const landmarksInfo = [
         position: { lat: 25.7188, lng: 32.6573 },
         title: "Karnak Temple",
     },
-]
+    ValleyOfTheKings = {
+        position: { lat: 25.7402, lng: 32.6014 },
+        title: "Valley of the Kings",
+    },
+    AbuSimbel = {
+        position: { lat: 22.3460, lng: 31.6156 },
+        title: "Abu Simbel",
+    },
+    Aswan = {
+        position: { lat: 24.0889, lng: 32.8998 },
+        title: "Aswan",
+    },
+    EgyptianMuseum = {
+        position: { lat: 30.0476, lng: 31.2336 },
+        title: "Egyptian Museum",
+    },
+    Alexandria = {
+        position: { lat: 31.2001, lng: 29.9187 },
+        title: "Alexandria",
+    },
+    AbydosTemple = {
+        position: { lat: 26.1851, lng: 31.9192 },
+        title: "Abydos Temple",
+    },
+    Saqqara = {
+        position: { lat: 29.8713, lng: 31.2164 },
+        title: "Saqqara",
+    }
+];
 
 function initMap() {
 
@@ -32,10 +60,13 @@ function initMap() {
     // LABELS FOR LANDMARK MARKERS
     const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    const landmarkMarkers = landmarksInfo.map((location, i) => {
+    const landmarkMarkers = landmarksInfo.map((location) => {
         return new google.maps.Marker({
             position: location.position,
-            label: labels[i % labels.length],
+            title: location.title,
+            icon: {
+                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+            }
         });
     });
 
