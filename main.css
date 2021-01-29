@@ -4,6 +4,26 @@ html, body {
     margin: 0;
 }
 
+h1, h2, h3 {
+    margin: 10px 0;
+}
+
+p {
+    margin: 8px 0;
+}
+
 #map {
     height: 100%;
+}
+
+.gm-style .gm-style-iw-c {
+    padding: 4px 12px 12px;
+}
+
+.infoWindow h3 {
+    text-align: center;
+}
+
+.infoWindow, img {
+    width: 20rem;
 }
