@@ -79,6 +79,7 @@ function initMap() {
         map: map,
     });
     capitalMarker.addListener("click", () => {
+        infoWindow.close();
         infoWindow = new google.maps.InfoWindow({
             content: addCapitalInfoContainer(capitalInfo),
         });
@@ -99,6 +100,7 @@ function initMap() {
     });
     for(let i = 0; i < landmarksInfo.length; i++) {
         landmarkMarkers[i].addListener("click", () => {
+            infoWindow.close();
             infoWindow = new google.maps.InfoWindow({
                 content: addInfoContainer(landmarksInfo[i]),
             })
