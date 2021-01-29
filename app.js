@@ -80,7 +80,7 @@ function initMap() {
     });
     capitalMarker.addListener("click", () => {
         infoWindow = new google.maps.InfoWindow({
-            content: addInfoContainer(capitalInfo),
+            content: addCapitalInfoContainer(capitalInfo),
         });
         infoWindow.open(map, capitalMarker);
     });
@@ -97,18 +97,36 @@ function initMap() {
             }
         });
     });
+    for(let i = 0; i < landmarksInfo.length; i++) {
+        landmarkMarkers[i].addListener("click", () => {
+            infoWindow = new google.maps.InfoWindow({
+                content: addInfoContainer(landmarksInfo[i]),
+            })
+            infoWindow.open(map, landmarkMarkers[i]);
+        })
+    }
 
     new MarkerClusterer(map, landmarkMarkers, {
         imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
     });
 
     // FUNCTIONS
-    const addInfoContainer = function (info) {
+    const addCapitalInfoContainer = function (info) {
         const infoContainer = document.createElement("div");
         infoContainer.innerHTML = `
             <h3>${info[0].title}</h3>
             <img src=${info[0].image}>
             <p>${info[0].description}</p>
+        `
+        infoContainer.classList.add("infoWindow");
+        return infoContainer;
+    }
+    const addInfoContainer = function (info) {
+        const infoContainer = document.createElement("div");
+        infoContainer.innerHTML = `
+            <h3>${info.title}</h3>
+            <img src=${info.image}>
+            <p>${info.description}</p>
         `
         infoContainer.classList.add("infoWindow");
         return infoContainer;
