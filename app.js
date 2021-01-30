@@ -128,6 +128,17 @@ function initMap() {
         imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
     });
 
+    const legend = document.getElementById("legend");
+
+    for(const key in icons) {
+        const type = icons[key];
+        const name = type.name;
+        const icon = type.url;
+        const div = document.createElement("div");
+        div.innerHTML = `<img src=${icon}><span> - ${name}</span>`;
+        legend.appendChild(div);
+    }
+
     // FUNCTIONS
     const addInfoContainer = function (info) {
         const infoContainer = document.createElement("div");
