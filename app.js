@@ -88,9 +88,6 @@ function initMap() {
         closeWindow();
     });
 
-    // LABELS FOR LANDMARK MARKERS
-    const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     const landmarkMarkers = landmarksInfo.map((location) => {
         return new google.maps.Marker({
             position: location.position,
