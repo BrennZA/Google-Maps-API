@@ -16,6 +16,36 @@ p {
     height: 100%;
 }
 
+#legend {
+    width: 10rem;
+    height: 12rem;
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid #000;
+}
+
+#legend h2 {
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin: .2rem 0 .6rem .2rem;
+}
+
+#legend div {
+    position: relative;
+}
+
+#legend div img {
+    width: 1.7rem;
+}
+
+#legend span {
+    position: absolute;
+    margin: .4rem 0 0 .2rem;
+    font-size: .8rem;
+    font-weight: 500;
+}
+
 .gm-style .gm-style-iw-c {
     padding: 4px 12px 12px;
 }
