@@ -64,6 +64,10 @@ const landmarksInfo = [
     }
 ];
 
+icons = {
+    capital: "http://maps.google.com/mapfiles/kml/paddle/red-stars.png"
+}
+
 function initMap() {
 
     const map = new google.maps.Map(document.getElementById("map"), {
@@ -76,6 +80,7 @@ function initMap() {
     const capitalMarker = new google.maps.Marker({
         position: capitalInfo[0].position,
         title: capitalInfo[0].title,
+        icon: icons.capital,
         animation: google.maps.Animation.DROP,
         map: map,
     });
