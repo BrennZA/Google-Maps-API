@@ -84,6 +84,7 @@ function initMap() {
             content: addInfoContainer(capitalInfo),
         });
         infoWindow.open(map, capitalMarker);
+        closeWindow();
     });
 
     // LABELS FOR LANDMARK MARKERS
@@ -105,6 +106,7 @@ function initMap() {
                 content: addInfoContainer(landmarksInfo[i]),
             })
             infoWindow.open(map, landmarkMarkers[i]);
+            closeWindow();
         })
     }
 
@@ -132,5 +134,13 @@ function initMap() {
         }
         infoContainer.classList.add("infoWindow");
         return infoContainer;
+    }
+
+    const closeWindow = function() {
+        map.addListener("click", () => {
+            if(infoWindow) {
+                infoWindow.close();
+            }
+        })
     }
 };
