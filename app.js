@@ -65,7 +65,18 @@ const landmarksInfo = [
 ];
 
 icons = {
-    capital: "http://maps.google.com/mapfiles/kml/paddle/red-stars.png"
+    capital: {
+        url: "https://previews.dropbox.com/p/thumb/ABBD935b4ualZPN1r_mt7fqMS50enbJGucuJKA_y7wBbnuskdxPMjy-P9ZHzFRjgNkdMpSKptG9oO3YwFEYaBnhbpGgIwhg2AojacVGj48R6rRLLeIfbrPxsXC6WIRHYKrN1h4O4WPSSz8dh10uyXCFoZ_PS2VA0FiqtTslSSO9V2zTXRSVeDz61OwMMV4z07KZHf2BijWj7mHoNl-hBW8OcOL_4n02rsFrqUrGezyH1jLkZb_J3RE9urM7ZCB3lL_jnjBPmQ0pcIfH4ySY6ut8nX2SFvnIjUxRH96ly6TtQi3M-Q8eCRsaVRttTJLNpvq06AjInvC5wUWHgLiLPP1wnr4DfFf_DB18c9BAxeOoxVg/p.png?fv_content=true&size_mode=5",
+        name: "Capital"
+    },
+    landmark: {
+        url: "https://previews.dropbox.com/p/thumb/ABBYb8v4lCrLVzRHCm8sC6IqIdpVNrnDR8RDBo1OFBlhgLmISpB8QdJminaEczeeQ8pztA-7ldUT2ReHK-scdOQq61SaR-xdRE_URwMc8ll9jLCSQZWxSdBIh5ma1uJvKctCQwQlA81L74qIg7GY1qGyGtpOzop0InijGsIYLbIDzBEBhHwVfd7zyas0Vu0xw6oSA4cNlnTKb7gKRIyjRThyPUPQj3elGw6eHy0u07CVKERW9w5wySSQbbE3CMDOjaHk_GzNlVoEIUFoTHtQg6_8Zzpvh2HXoODVxKnyesSFgU-sSDaGJpidkjaieLUFTxnThm6HW83F8PCVnqnN5C3OZxpQNtrL0puPymNwNc0BSw/p.png?fv_content=true&size_mode=5",
+        name: "Landmark"
+    },
+    markerClusterer: {
+        url: "https://previews.dropbox.com/p/thumb/ABBYssJ5IMPRoJjl7mrUofwlVQGBfpaFfraH1WfTLo4qJzaUbSj3ickKBnEHfNv9YajIwzwrq7yXf5uuO7QmEWMsKX9HthAhff1lExnLuno3jmeSJvE-qPro7Lv8Ji9-SkNln1nPcCjnk3Auj2tfNPCnTuzOdUXrwmcu1UqWPz3rhr0EpxgnoOqYd9RBr1V6hM90AhszSYetQ2cK5PY8AvatKSvmklwABXTQCCkaEnVlnhomr-XKL8prPblMjYmFRt1WLS2Z3GT4PcG5irJMqmkACdyoZNMT_cvXGhYM1-jbS0xZBftnGzPCAmosBYpam7lr2gouvoK5xuO9qXmPHfgu4UPVS-_201rCsrcgmG-1tQ/p.png?fv_content=true&size_mode=5",
+        name: "Cluster"
+    } 
 }
 
 function initMap() {
@@ -80,7 +91,7 @@ function initMap() {
     const capitalMarker = new google.maps.Marker({
         position: capitalInfo[0].position,
         title: capitalInfo[0].title,
-        icon: icons.capital,
+        icon: icons.capital.url,
         animation: google.maps.Animation.DROP,
         map: map,
     });
@@ -98,7 +109,7 @@ function initMap() {
             position: location.position,
             title: location.title,
             icon: {
-                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+                url: icons.landmark.url,
             }
         });
     });
