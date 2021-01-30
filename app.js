@@ -138,6 +138,7 @@ function initMap() {
         div.innerHTML = `<img src=${icon}><span> - ${name}</span>`;
         legend.appendChild(div);
     }
+    map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend);
 
     // FUNCTIONS
     const addInfoContainer = function (info) {
