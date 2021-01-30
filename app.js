@@ -76,6 +76,7 @@ function initMap() {
     const capitalMarker = new google.maps.Marker({
         position: capitalInfo[0].position,
         title: capitalInfo[0].title,
+        animation: google.maps.Animation.DROP,
         map: map,
     });
     capitalMarker.addListener("click", () => {
@@ -99,7 +100,7 @@ function initMap() {
             }
         });
     });
-    for(let i = 0; i < landmarksInfo.length; i++) {
+    for (let i = 0; i < landmarksInfo.length; i++) {
         landmarkMarkers[i].addListener("click", () => {
             infoWindow.close();
             infoWindow = new google.maps.InfoWindow({
@@ -117,15 +118,15 @@ function initMap() {
     // FUNCTIONS
     const addInfoContainer = function (info) {
         const infoContainer = document.createElement("div");
-        if(info[0]) {
-            infoContainer.innerHTML = 
+        if (info[0]) {
+            infoContainer.innerHTML =
                 `
                     <h3>${info[0].title}</h3>
                     <img src=${info[0].image}>
                     <p>${info[0].description}</p>
                 `
         } else {
-            infoContainer.innerHTML = 
+            infoContainer.innerHTML =
                 `
                     <h3>${info.title}</h3>
                     <img src=${info.image}>
@@ -136,9 +137,9 @@ function initMap() {
         return infoContainer;
     }
 
-    const closeWindow = function() {
+    const closeWindow = function () {
         map.addListener("click", () => {
-            if(infoWindow) {
+            if (infoWindow) {
                 infoWindow.close();
             }
         })
