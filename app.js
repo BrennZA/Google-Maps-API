@@ -81,7 +81,7 @@ function initMap() {
     capitalMarker.addListener("click", () => {
         infoWindow.close();
         infoWindow = new google.maps.InfoWindow({
-            content: addCapitalInfoContainer(capitalInfo),
+            content: addInfoContainer(capitalInfo),
         });
         infoWindow.open(map, capitalMarker);
     });
@@ -113,23 +113,23 @@ function initMap() {
     });
 
     // FUNCTIONS
-    const addCapitalInfoContainer = function (info) {
-        const infoContainer = document.createElement("div");
-        infoContainer.innerHTML = `
-            <h3>${info[0].title}</h3>
-            <img src=${info[0].image}>
-            <p>${info[0].description}</p>
-        `
-        infoContainer.classList.add("infoWindow");
-        return infoContainer;
-    }
     const addInfoContainer = function (info) {
         const infoContainer = document.createElement("div");
-        infoContainer.innerHTML = `
-            <h3>${info.title}</h3>
-            <img src=${info.image}>
-            <p>${info.description}</p>
-        `
+        if(info[0]) {
+            infoContainer.innerHTML = 
+                `
+                    <h3>${info[0].title}</h3>
+                    <img src=${info[0].image}>
+                    <p>${info[0].description}</p>
+                `
+        } else {
+            infoContainer.innerHTML = 
+                `
+                    <h3>${info.title}</h3>
+                    <img src=${info.image}>
+                    <p>${info.description}</p>
+                `
+        }
         infoContainer.classList.add("infoWindow");
         return infoContainer;
     }
